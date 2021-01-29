@@ -6,11 +6,13 @@ class SearchBar extends React.Component {
     this.setState({ myInput: event.target.value })
   }
   onSubmitForm = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    console.log("searchInput", this.state.myInput)
+    this.props.onSubmitted(this.state.myInput)
   }
   render() {
     return (
-      <div className="container" style={{ marginTop: "12px" }}>
+      <div className="container mb-2" style={{ marginTop: "12px" }}>
         <div className="search-container">
           <form onSubmit={this.onSubmitForm}>
             <label className="form-label fw-bold fs-4">Search your videos</label>
